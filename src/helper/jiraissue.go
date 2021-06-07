@@ -33,38 +33,38 @@ func JiraIssue(client *jira.Client) {
 			//print("\n\n")
 
 			// -- Get Area - "<Are Name on Jira board>"
-			//PrettyPrint(elem.Fields.Unknowns["customfield_10109"])		// "customfield_10109" is a dict key. - works!
-			area := elem.Fields.Unknowns["customfield_10109"]				// value of "customfield_10109" is a dict and therefore requires assertion before we can access value.
+			//PrettyPrint(elem.Fields.Unknowns["customfield_<XXXXXX>"])		// "customfield_10109" is a dict key. - works!
+			area := elem.Fields.Unknowns["customfield_<XXXXXX>"]				// value of "customfield_10109" is a dict and therefore requires assertion before we can access value.
 			//fmt.Println(area)												// Go treats area as a map[] but doesn't knows type of its value so we need to assert.
 			areav, _ := area.(map[string]interface{})						// Go needs an explicit assertion that what follows after customfield_* is a interface. 
 			fmt.Println(areav["value"])
 
 			// Get Task Type
-			tt := elem.Fields.Unknowns["customfield_10426"]
+			tt := elem.Fields.Unknowns["customfield_<XXXXXX>"]
 			//fmt.Println(area)
 			ttv, _ := tt.(map[string]interface{})						
 			fmt.Println(ttv["value"])
 
-			// Get requester File ID
-			flid := elem.Fields.Unknowns["customfield_13102"]
+			// Get requester ID
+			flid := elem.Fields.Unknowns["customfield_<XXXXXX>"]
 			fmt.Println (flid)
 
 			// Get requester email ID
-			emailid := elem.Fields.Unknowns["customfield_10102"]
+			emailid := elem.Fields.Unknowns["customfield_<XXXXXX>"]
 			fmt.Println (emailid)
 
-			// Get Line Manager
-			lm := elem.Fields.Unknowns["customfield_20301"]
+			// Get LM
+			lm := elem.Fields.Unknowns["customfield_<XXXXXX>"]
 			fmt.Println (lm)
 
-			// Get Value Stream Name
-			vs := elem.Fields.Unknowns["customfield_15604"]
+			// Get VS Name
+			vs := elem.Fields.Unknowns["customfield_<XXXXXX>"]
 			//fmt.Println(area)
 			vsv, _ := vs.(map[string]interface{})						
 			fmt.Println(vsv["value"])
 
-			// Get Lab Name
-			lab := elem.Fields.Unknowns["customfield_15218"]
+			// Get LN
+			lab := elem.Fields.Unknowns["customfield_<XXXXXX>"]
 			fmt.Println (lab)
 
 
